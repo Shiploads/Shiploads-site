@@ -10,11 +10,13 @@ import {
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { Product } from '@prisma/client';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
-
+  @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() data: Omit<Product, 'id' | 'createdAt'>) {
     return this.productService.create(data);

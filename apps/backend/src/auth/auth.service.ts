@@ -20,9 +20,13 @@ export class AuthService {
     });
     if (existingUser) throw new ConflictException('Email already registered');
     const hashedPassword = await bcrypt.hash(password, 10);
-    return this.prisma.user.create({
+    const user = await this.prisma.user.create({
       data: { email, password: hashedPassword, name },
     });
+    // Remove password before returning
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _pw, ...userWithoutPassword } = user;
+    return userWithoutPassword;
   }
 
   async validateUser(email: string, password: string) {

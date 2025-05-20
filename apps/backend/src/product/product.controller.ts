@@ -14,15 +14,16 @@ import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { Roles } from 'src/auth/roles.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
+import { CreateProductDto } from './dto/create-product.dto';
 
 @Controller('products')
 export class ProductController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(private readonly productService: ProductService) { }
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('ADMIN')
   @Post()
-  create(@Body() data: Omit<Product, 'id' | 'createdAt'>) {
-    return this.productService.create(data);
+  create(@Body() dto: CreateProductDto) {
+    return this.productService.create(dto);
   }
 
   @Get()

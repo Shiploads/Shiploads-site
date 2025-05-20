@@ -2,14 +2,17 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { Product } from '@prisma/client';
-
+import { CreateProductDto } from './dto/create-product.dto';
 @Injectable()
 export class ProductService {
   constructor(private prisma: PrismaService) {}
 
   // CREATE
-  async create(data: Omit<Product, 'id' | 'createdAt'>): Promise<Product> {
-    return this.prisma.product.create({ data });
+  async create(data: CreateProductDto) {
+    return this.prisma.product.create({
+      data,
+      // If you want to return only safe fields, use select: {...}
+    });
   }
 
   // READ ALL

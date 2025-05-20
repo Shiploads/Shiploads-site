@@ -31,12 +31,12 @@ export class ProductController {
   findOne(@Param('id') id: string) {
     return this.productService.findOne(Number(id));
   }
-
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   update(@Param('id') id: string, @Body() data: Partial<Product>) {
     return this.productService.update(Number(id), data);
   }
-
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.productService.remove(Number(id));

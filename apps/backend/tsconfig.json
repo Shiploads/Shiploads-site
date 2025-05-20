@@ -1,4 +1,8 @@
 {
+   "include": [
+    "src",
+    "node_modules/@prisma/client"
+  ],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,

@@ -13,7 +13,7 @@ import { Product } from '@prisma/client';
 
 @Controller('products')
 export class ProductController {
-  constructor(private readonly productService: ProductService) { }
+  constructor(private readonly productService: ProductService) {}
 
   @Post()
   create(@Body() data: Omit<Product, 'id' | 'createdAt'>) {

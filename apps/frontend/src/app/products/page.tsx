@@ -28,17 +28,21 @@ export default function ProductListPage() {
     if (loading) return <p> Loading...</p>
 
     return (
-        <main className="p-4">
-            <h1 className="text-xl font-bold mb-4">Products</h1>
-            <ul>
-                {
-                    products.map(p => (
-                        <li key={p.id}>
-                            <span>{p.name}</span> - <span>{p.price}</span>
-                        </li>
-                    ))
-                }
-            </ul>
+        <main className="">
+            <div className="bg-brand-red">
+
+
+                <h1 className="text-xl font-bold mb-4">Products</h1>
+                <ul>
+                    {
+                        products.map(p => (
+                            <li key={p.id}>
+                                <span>{p.name}</span> - <span>{p.price}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
         </main>
     )
 }

@@ -1,4 +1,6 @@
+
 console.log('Loaded Tailwind config from /apps/frontend/tailwind.config.js');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,7 +11,7 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          green:  '#27ae60',
+          green:  '#98cb50',
           orange: '#f2994a',
           blue:   '#0984e3',
           red:    '#e74c3c',

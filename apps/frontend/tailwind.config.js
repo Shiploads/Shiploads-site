@@ -1,3 +1,4 @@
+console.log('Loaded Tailwind config from /apps/frontend/tailwind.config.js');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [

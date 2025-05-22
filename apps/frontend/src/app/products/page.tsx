@@ -29,10 +29,11 @@ export default function ProductListPage() {
 
     return (
         <main className="">
-            <div className="bg-brand-red">
+            <div >
 
 
                 <h1 className="text-xl font-bold mb-4">Products</h1>
+
                 <ul>
                     {
                         products.map(p => (
